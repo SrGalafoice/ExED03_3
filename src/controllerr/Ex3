@@ -1,0 +1,99 @@
+package controller;
+
+public class Ex3<T> {
+    private Object[] pilha;
+    private int topoA;
+    private int topoB;
+
+    public Ex3(int tamanho) {
+        pilha = new Object[tamanho];
+        topoA = -1;
+        topoB = tamanho;
+    }
+
+    public Ex3() {
+        this(6);
+    }
+
+    public void empilhaA(Object elemento) {
+        if (cheiaA()){
+            throw new IllegalStateException("Pilha A cheia =  desempilhe algum primeiro!");
+        }
+
+        pilha[++topoA] = elemento;
+    }
+
+    public void empilhaB(Object elemento) {
+        if (cheiaB()){
+            throw new IllegalStateException("Pilha B cheia = desempilhe primeiro!");
+        }
+
+        pilha[--topoB] = elemento;
+    }
+    public boolean vaziaA() {
+        return topoA == -1;
+    }
+    public boolean vaziaB() {
+        return topoB == pilha.length;
+    }
+    public Object desempilhaA() {
+        if (vaziaA()){
+throw new IllegalStateException("Pilha A vazia = empilhe primeiro!");
+}
+
+        Object oldtopo = pilha[topoA];
+        pilha[topoA--] = null;
+        return oldtopo;
+    }
+    public Object desempilhaB() {
+        if (vaziaB()){
+            throw new IllegalStateException("Pilha B vazia = empilhe primeiro!");
+        }
+
+        Object oldtopo = pilha[topoB];
+        pilha[topoB++] = null;
+        return oldtopo;
+    }
+    public boolean cheiaA() {
+        return (topoA + 1) == topoB;
+    }
+
+    public boolean cheiaB() {
+        return (topoB - 1) == topoA;
+    }
+
+    public Object topoA() {
+        return (vaziaA()) ? null : pilha[topoA];
+    }
+
+    public Object topoB() {
+        return (vaziaB()) ? null : pilha[topoB];
+    }
+
+    public void mostrarPilhaA() {
+        StringBuilder stringBuilder = new StringBuilder("PilhaA --> [");
+        for (int i = 0; i < topoA; i++) {
+            stringBuilder.append(pilha[i]).append(", ");
+        }
+        stringBuilder.append(topoA()).append("]");
+        System.out.println(stringBuilder);
+    }
+
+    public void mostrarPilhaB() {
+        int fim = pilha.length - 1;
+        StringBuilder stringBuilder = new StringBuilder("PilhaB --> [");
+        for (int i = fim; i > topoB; i--) {
+            stringBuilder.append(pilha[i]).append(", ");
+        }
+        stringBuilder.append(topoB()).append("]");
+        System.out.println(stringBuilder);
+    }
+
+    public int tamanhoA() {
+        return topoA + 1;
+    }
+
+    public int tamanhoB() {
+        return pilha.length - topoB;
+    }
+}
