@@ -1,0 +1,40 @@
+package view;
+
+import controller.Ex3;
+
+public class MainEx3 {
+    public static void main(String[] args) {
+        Ex3<Integer> pilha = new Ex3<>();
+
+        System.out.println("Tamanho da pilha A =  " + pilha.tamanhoA());
+        System.out.println("Tamanho da pilha B = " + pilha.tamanhoB());
+        System.out.println("Pilha A está vazia? " + pilha.vaziaA());
+        System.out.println("Pilha B está vazia? " + pilha.vaziaB());
+
+        pilha.empilhaA(1);
+        pilha.empilhaA(2);
+        pilha.empilhaB(3);
+        pilha.empilhaB(4);
+        pilha.empilhaB(8);
+        pilha.empilhaB(9);
+        pilha.mostrarPilhaA();
+        pilha.mostrarPilhaB();
+
+        System.out.println("Tamanho da pilha A =  " + pilha.tamanhoA());
+        System.out.println("Tamanho da pilha B = " + pilha.tamanhoB());
+      System.out.println("Topo da pilha A =  " + pilha.topoA());
+      System.out.println("Topo da pilha B = " + pilha.topoB());
+
+      System.out.println("Desempilhando A...  " + pilha.desempilhaA());
+      System.out.println("Desempilhando A... " + pilha.desempilhaA());
+      System.out.println("Desempilhando B... " + pilha.desempilhaB());
+      System.out.println("Desempilhando B... " + pilha.desempilhaB());
+        pilha.mostrarPilhaA();
+        pilha.mostrarPilhaB();
+
+        System.out.println("Tamanho da pilha A =  " + pilha.tamanhoA());
+        System.out.println("Tamanho da pilha B = " + pilha.tamanhoB());
+      System.out.println("Topo da pilha A =  " + pilha.topoA());
+      System.out.println("Topo da pilha B = " + pilha.topoB());
+    }
+}
